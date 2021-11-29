@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.LoginActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logosignin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:id="@+id/imglogo"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shop Online"
+        android:layout_below="@+id/imglogo"
+        android:textStyle="bold"
+        android:textSize="48dp"
+        android:textColor="@color/mau_xanh"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/lexenddeca"
+        android:id="@+id/tv_logo"/>
+    <EditText
+        android:layout_width="335dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/tv_logo"
+        android:hint="Họ tên"
+        android:fontFamily="@font/lexenddeca"
+        android:background="@drawable/bg_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/ed_hoTen_signin" />
+    <EditText
+        android:layout_width="335dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/ed_hoTen_signin"
+        android:hint="Email"
+        android:fontFamily="@font/lexenddeca"
+        android:background="@drawable/bg_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/ed_email_signin"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:layout_width="335dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/ed_email_signin"
+        android:hint="Password"
+        android:fontFamily="@font/lexenddeca"
+        android:background="@drawable/bg_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/ed_pass_signin"
+        android:inputType="textPassword"/>
+    <EditText
+        android:layout_width="335dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/ed_pass_signin"
+        android:hint="Số điện thoại"
+        android:fontFamily="@font/lexenddeca"
+        android:background="@drawable/bg_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/ed_sdt_signin"
+        android:inputType="phone"/>
+    <EditText
+        android:layout_width="335dp"
+        android:layout_height="52dp"
+        android:layout_below="@+id/ed_sdt_signin"
+        android:hint="Địa chỉ"
+        android:fontFamily="@font/lexenddeca"
+        android:background="@drawable/bg_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:id="@+id/ed_diachi_signin" />
+    <Button
+        android:id="@+id/btnSignin"
+        android:layout_width="146dp"
+        android:layout_height="60dp"
+        android:text="Đăng ký"
+        android:backgroundTint="@color/mau_xanh"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ed_diachi_signin"
+        android:layout_marginTop="30dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/btnSignin"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bạn đã có tài khoản ?"
+            android:fontFamily="@font/lexenddeca"
+            android:textSize="14dp"
+            android:layout_marginLeft="80dp"
+            android:id="@+id/tv_hoi"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_dangnhap"
+            android:text="Đăng nhập"
+            android:fontFamily="@font/lexenddeca"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/click_sanpham"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_sanpham"
+        android:layout_width="118dp"
+        android:layout_height="143dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/iphone13" />
+
+    <TextView
+        android:id="@+id/tv_ten_sanpham"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_sanpham"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/lexenddeca"
+        android:text="Dien thoai"
+        android:textColor="@color/mau_den"
+        android:textSize="12dp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tv_ten_sanpham">
+        <TextView
+            android:id="@+id/tv_gia_sanpham"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_ten_sanpham"
+            android:fontFamily="@font/lexenddeca"
+            android:text="9999999"
+            android:textColor="#F44336"
+            android:textSize="12dp"
+            android:paddingLeft="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_vnd_sanpham"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_ten_sanpham"
+            android:fontFamily="@font/lexenddeca"
+            android:text="VNĐ"
+            android:textColor="#F44336"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

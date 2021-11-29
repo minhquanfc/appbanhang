@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment"
+    android:background="#FCFFFFFF">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/mau_xanh"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Online shop"
+        android:textSize="26dp"
+        android:fontFamily="@font/lexenddeca"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_tenapp"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/ed_search"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_tenapp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_search"
+        android:drawableStart="@drawable/search"
+        android:paddingLeft="20dp"
+        android:hint="Tìm kiếm"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:textColor="@color/skip"
+        android:fontFamily="@font/lexenddeca" />
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:id="@+id/viewpager_slide"
+        android:layout_below="@+id/ed_search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_margin="10dp"/>
+    <me.relex.circleindicator.CircleIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/circle_indicator"
+        app:ci_drawable="@drawable/bg_indicator"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/viewpager_slide"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_danhmuc"
+        android:text="Danh mục"
+        android:layout_below="@id/circle_indicator"
+        android:textSize="14dp"
+        android:paddingLeft="20dp"
+        android:textColor="@color/mau_den"
+        android:fontFamily="@font/lexenddeca"
+        android:textStyle="bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcview_danhmuc"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/tv_danhmuc" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_dienthoai"
+        android:text="Điện thoại"
+        android:layout_below="@id/rcview_danhmuc"
+        android:textSize="16dp"
+        android:paddingLeft="20dp"
+        android:textColor="@color/mau_den"
+        android:fontFamily="@font/lexenddeca"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_sale_dt"
+        android:text="(10% Off)"
+        android:layout_below="@id/rcview_danhmuc"
+        android:textSize="16dp"
+        android:textColor="@color/mau_xanh"
+        android:fontFamily="@font/lexenddeca"
+        android:layout_marginLeft="113dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_xemthem_dt"
+        android:text="Xem thêm"
+        android:layout_below="@id/rcview_danhmuc"
+        android:textSize="12dp"
+        android:textColor="@color/mau_vang"
+        android:fontFamily="@font/lexenddeca"
+        android:textStyle="bold"
+        android:paddingRight="20dp"
+        android:textAlignment="viewEnd"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_dt_noibat"
+        android:text="Điện thoại nổi bật nhất"
+        android:layout_below="@id/tv_dienthoai"
+        android:textSize="12dp"
+        android:textColor="@color/mau_den"
+        android:fontFamily="@font/lexenddeca"
+        android:paddingLeft="20dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_view_dienthoai"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/tv_dt_noibat"
+        android:padding="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_dongho"
+        android:text="Đồng hồ thông minh"
+        android:layout_below="@id/rc_view_dienthoai"
+        android:textSize="16dp"
+        android:paddingLeft="20dp"
+        android:textColor="@color/mau_den"
+        android:fontFamily="@font/lexenddeca"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_sale_dh"
+        android:text="(20% Off)"
+        android:layout_below="@id/rc_view_dienthoai"
+        android:textSize="16dp"
+        android:textColor="@color/mau_xanh"
+        android:fontFamily="@font/lexenddeca"
+        android:layout_marginLeft="180dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_xemthem_dh"
+        android:text="Xem thêm"
+        android:layout_below="@id/rc_view_dienthoai"
+        android:textSize="12dp"
+        android:textColor="@color/mau_vang"
+        android:fontFamily="@font/lexenddeca"
+        android:textStyle="bold"
+        android:paddingRight="20dp"
+        android:textAlignment="viewEnd"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_dh_noibat"
+        android:text="Đồng hồ nổi bật nhất"
+        android:layout_below="@id/tv_dongho"
+        android:textSize="12dp"
+        android:textColor="@color/mau_den"
+        android:fontFamily="@font/lexenddeca"
+        android:paddingLeft="20dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_view_dongho"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/tv_dh_noibat"
+        android:padding="20dp"/>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

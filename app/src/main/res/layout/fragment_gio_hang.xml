@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.favoriteFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/mau_xanh"
+        android:id="@+id/layout1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Giỏ hàng"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/tv3"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/layout1"
+        android:id="@+id/layout2">
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="13dp"
+            android:src="@drawable/icondiachi"
+            android:layout_margin="20dp"
+            android:id="@+id/img_icondiachia"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lexenddeca"
+            android:text="Ha noi , viet nam"
+            android:textSize="12dp"
+            android:id="@+id/tv_diachi"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thay đổi địa chỉ"
+            android:id="@+id/tv_thaydiachi"
+            android:fontFamily="@font/lexenddeca"
+            android:textSize="12dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/mau_xanh"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout2">
+
+        <TextView
+            android:id="@+id/tv6"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#C1C1C1"
+            android:fontFamily="@font/lexenddeca"
+            android:padding="5dp"
+            android:paddingLeft="20dp"
+            android:text="Giỏ hàng"
+            android:textColor="@color/mau_den" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_view_giohang"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_below="@id/tv6" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/lexenddeca"
+                android:text="Tổng tiền:"
+                android:textColor="@color/mau_den"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_tongtien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/lexenddeca"
+                android:text="999999"
+                android:textColor="#F44336"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/lexenddeca"
+                android:text="đ"
+                android:textColor="#F44336"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_thanhtoan"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="70dp"
+                android:backgroundTint="@color/mau_xanh"
+                android:text="Thanh toán" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
