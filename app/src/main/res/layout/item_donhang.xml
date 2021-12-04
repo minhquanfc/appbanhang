@@ -12,7 +12,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/click_danhsach"
+            android:id="@+id/click_donhang"
             android:layout_margin="1dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -23,7 +23,7 @@
                     android:layout_height="75dp"
                     android:src="@drawable/iphone13"
                     android:layout_margin="10dp"
-                    android:id="@+id/img_sp_danhsach"/>
+                    android:id="@+id/img_sp_donhang"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -31,13 +31,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/tv_ten_danhsach"
+                        android:id="@+id/tv_ten_donhang"
                         android:text="Iphone 13 128GB"
                         android:fontFamily="@font/lexenddeca"
                         android:textColor="@color/mau_den"
                         android:textSize="14dp"
                         android:textStyle="bold"
-                        android:layout_margin="10dp"/>
+                        android:layout_marginTop="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_soluong_donhang"
+                        android:text="1 san pham"
+                        android:fontFamily="@font/lexenddeca"
+                        android:textColor="@color/mau_den2"
+                        android:textSize="12dp" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -45,13 +53,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/tv_gia_danhsach"
+                            android:id="@+id/tv_gia_donhang"
                             android:text="100000"
                             android:fontFamily="@font/lexenddeca"
                             android:textColor="#F44336"
-                            android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:layout_margin="10dp"/>
+                            android:textSize="12dp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -59,9 +65,28 @@
                             android:text="VNĐ"
                             android:fontFamily="@font/lexenddeca"
                             android:textColor="#F44336"
-                            android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="10dp" />
+                            android:textSize="12dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv1"
+                            android:text="Trạng thái:"
+                            android:fontFamily="@font/lexenddeca"
+                            android:textColor="@color/mau_den2"
+                            android:textSize="12dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_trangthai"
+                            android:text="Chờ xử lý"
+                            android:fontFamily="@font/lexenddeca"
+                            android:textColor="@color/mau_xanh"
+                            android:textSize="12dp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

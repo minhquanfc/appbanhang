@@ -6,8 +6,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:id="@+id/click_yeuthich">
+        android:id="@+id/click_yeuthich"
+        android:layout_margin="1dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

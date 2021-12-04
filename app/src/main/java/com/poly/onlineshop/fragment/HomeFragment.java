@@ -22,11 +22,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.onlineshop.Activity.ChiTietActivity;
 import com.poly.onlineshop.Activity.DanhSachActivity;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.adapter.DanhMucAdapter;
 import com.poly.onlineshop.adapter.DongHoAdapter;
 import com.poly.onlineshop.adapter.SanPhamAdapter;
+import com.poly.onlineshop.adapter.SanPhamSearchAdapter;
 import com.poly.onlineshop.adapter.SlidePhotoAdapter;
 import com.poly.onlineshop.model.Danhmuc;
 import com.poly.onlineshop.model.DongHo;
@@ -76,14 +78,10 @@ public class HomeFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
 
         //hien thi anh slide
-        photoList = getListPhoto();
-        SlidePhotoAdapter photoAdapter = new SlidePhotoAdapter(getContext(),getListPhoto());
-        viewPager_silde.setAdapter(photoAdapter);
-        circleIndicator.setViewPager(viewPager_silde);
-        //auto slide
-        autoslidePhoto();
+        photoList = new ArrayList<>();
+        getDataSlide();
 
-        //do du lieu len danh muc
+        //hien thi du lieu len danh muc
         danhmucList = new ArrayList<>();
         danhMucAdapter = new DanhMucAdapter(getContext(),danhmucList);
         recyclerView_danhmuc.setAdapter(danhMucAdapter);
@@ -98,6 +96,7 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false);
         recyclerView_dienthoai.setLayoutManager(linearLayoutManager1);
         getDataDienthoai();
+
         // hien thi dong ho
         dongHoList = new ArrayList<>();
         dongHoAdapter = new DongHoAdapter(getContext(),dongHoList);
@@ -112,11 +111,31 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), DanhSachActivity.class);
+                intent.putExtra("type","dienthoai");
                 startActivity(intent);
             }
         });
+        //xem them dong ho
+        tv_xemthem_dongho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DanhSachActivity.class);
+                intent.putExtra("type","dongho");
+                startActivity(intent);
+            }
+        });
+        setSanphamSearchAdapter();
 
         return view;
+    }
+
+    private void viewSlidePhoto(List<SlidePhoto> slidePhotoList) {
+//        photoList = getListPhoto();
+        SlidePhotoAdapter photoAdapter = new SlidePhotoAdapter(getContext(),slidePhotoList);
+        viewPager_silde.setAdapter(photoAdapter);
+        circleIndicator.setViewPager(viewPager_silde);
+        //auto slide
+        autoslidePhoto();
     }
 
     private void getDataDanhMuc() {
@@ -137,13 +156,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-    }
-    private List<SlidePhoto> getListPhoto(){
-        List<SlidePhoto> slidePhotoList = new ArrayList<>();
-        slidePhotoList.add(new SlidePhoto(R.drawable.anhslide1));
-        slidePhotoList.add(new SlidePhoto(R.drawable.anhslide2));
-        slidePhotoList.add(new SlidePhoto(R.drawable.anhslide3));
-        return  slidePhotoList;
     }
     private void autoslidePhoto() {
         runnable = new Runnable() {
@@ -184,6 +196,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     SanPham sanPham= dataSnapshot.getValue(SanPham.class);
+                    sanPham.setId(dataSnapshot.getKey());
                     sanPhamList.add(sanPham);
                 }
                 sanPhamAdapter.notifyDataSetChanged();
@@ -195,6 +208,21 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    private void setSanphamSearchAdapter() {
+        SanPhamSearchAdapter adapter = new SanPhamSearchAdapter(getActivity(), android.R.layout.activity_list_item,sanPhamList);
+        timkiem.setAdapter(adapter);
+        //intent qua chi tiet
+        timkiem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(),ChiTietActivity.class);
+                intent.putExtra("chitiet",sanPhamList.get(position));
+                startActivity(intent);
+            }
+        });
+    }
+
     //get du lieu dong ho
     private void getDataDongHo() {
         //doc du lieu tu realtime database
@@ -204,9 +232,29 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     DongHo sanPham= dataSnapshot.getValue(DongHo.class);
+                    sanPham.setId(dataSnapshot.getKey());
                     dongHoList.add(sanPham);
                 }
                 dongHoAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void getDataSlide() {
+        //doc du lieu tu realtime database
+        myRef = database.getReference("Banner");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    photoList.add(new SlidePhoto(dataSnapshot.child("img").getValue().toString()));
+                    //add vao list anh
+                    viewSlidePhoto(photoList);
+                }
             }
 
             @Override

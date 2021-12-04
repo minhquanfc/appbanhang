@@ -20,7 +20,7 @@ import com.poly.onlineshop.model.SanPham;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamHolder> implements Filterable {
+public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamHolder>{
     Context context;
     List<SanPham> sanPhamList;
 
@@ -55,44 +55,5 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamHolder> implemen
     @Override
     public int getItemCount() {
         return sanPhamList.size();
-    }
-
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence constraint) {
-                List<SanPham> listSuggest = new ArrayList<>();
-
-                if (constraint == null || constraint.length() == 0){
-                    listSuggest.addAll(sanPhamList);
-                }
-                else {
-                    String filter = constraint.toString().toLowerCase().trim();
-                    for (SanPham p : sanPhamList){
-                        if (p.getTen().toLowerCase().contains(filter)){
-                            listSuggest.add(p);
-                        }
-                    }
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = listSuggest;
-                filterResults.count = listSuggest.size();
-
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                sanPhamList = (List<SanPham>) results.values;
-                notifyDataSetChanged();
-            }
-
-            @Override
-            public CharSequence convertResultToString(Object resultValue) {
-                return ( (SanPham) resultValue).getTen();
-            }
-        };
     }
 }

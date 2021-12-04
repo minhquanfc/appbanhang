@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.bumptech.glide.Glide;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.model.SlidePhoto;
 
@@ -29,7 +30,8 @@ public class SlidePhotoAdapter extends PagerAdapter {
         View view = LayoutInflater.from(context).inflate(R.layout.item_photo,null);
         ImageView imageView = view.findViewById(R.id.imgphoto);
         SlidePhoto photo = photoList.get(position);
-        imageView.setImageResource(photo.getId_anh());
+//        imageView.setImageResource(photo.getId_anh());
+        Glide.with(context).load(photo.getId_anh()).into(imageView);
 
         //add view
         container.addView(view);

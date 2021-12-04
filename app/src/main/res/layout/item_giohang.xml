@@ -6,8 +6,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:id="@+id/click_giohang">
+        android:id="@+id/click_giohang"
+        android:layout_margin="2dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                         android:textColor="#F44336"
                         android:textSize="14dp"
                         android:textStyle="bold"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -69,34 +69,32 @@
                         android:textSize="14dp"
                         android:textStyle="bold"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="5dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="5dp">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/imgtru"
-                        android:id="@+id/btn_tru_sp_giohang"
-                        android:layout_marginTop="8dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/tv_soluong_giohang"/>
-                    <ImageView
+                        android:id="@+id/tv2"
+                        android:text="Số lượng :"
+                        android:fontFamily="@font/lexenddeca"
+                        android:textColor="@color/skip"
+                        android:textSize="14dp"
+                        android:textStyle="bold"/>
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/imgcong"
-                        android:id="@+id/btn_cong_sp_giohang"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="8dp"/>
+                        android:id="@+id/tv_soluong_giohang"
+                        android:text="1"
+                        android:fontFamily="@font/lexenddeca"
+                        android:textColor="@color/skip"
+                        android:textSize="14dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

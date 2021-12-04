@@ -10,6 +10,7 @@ public class SanPham implements Serializable {
     public String img;
     public String loai;
 
+
     public SanPham() {
     }
 
@@ -69,4 +70,5 @@ public class SanPham implements Serializable {
     public void setLoai(String loai) {
         this.loai = loai;
     }
+
 }

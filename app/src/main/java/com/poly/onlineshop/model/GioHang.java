@@ -4,18 +4,17 @@ public class GioHang {
     private String tenSanpham;
     private int giaSanpham;
     private int soLuong;
-    private String ngayMua;
     private String anh;
-
+    private int tongTien;
     public GioHang() {
     }
 
-    public GioHang(String tenSanpham, int giaSanpham, int soLuong, String ngayMua, String anh) {
+    public GioHang( String tenSanpham, int giaSanpham, int soLuong, String anh, int tongTien) {
         this.tenSanpham = tenSanpham;
         this.giaSanpham = giaSanpham;
         this.soLuong = soLuong;
-        this.ngayMua = ngayMua;
         this.anh = anh;
+        this.tongTien = tongTien;
     }
 
     public String getTenSanpham() {
@@ -42,19 +41,19 @@ public class GioHang {
         this.soLuong = soLuong;
     }
 
-    public String getNgayMua() {
-        return ngayMua;
-    }
-
-    public void setNgayMua(String ngayMua) {
-        this.ngayMua = ngayMua;
-    }
-
     public String getAnh() {
         return anh;
     }
 
     public void setAnh(String anh) {
         this.anh = anh;
+    }
+
+    public int getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(int tongTien) {
+        this.tongTien = tongTien;
     }
 }

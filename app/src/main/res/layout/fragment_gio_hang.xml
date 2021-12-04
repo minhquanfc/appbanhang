@@ -38,9 +38,27 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/lexenddeca"
-            android:text="Ha noi , viet nam"
+            android:text="Ha noi"
             android:textSize="12dp"
             android:id="@+id/tv_diachi"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lexenddeca"
+            android:text="abc"
+            android:textSize="12dp"
+            android:id="@+id/tv_ten"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lexenddeca"
+            android:text="099999"
+            android:textSize="12dp"
+            android:id="@+id/tv_sdt"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,15 +93,15 @@
             android:id="@+id/rc_view_giohang"
             android:layout_width="match_parent"
             android:layout_height="600dp"
-            android:layout_below="@id/tv6" />
+            android:layout_below="@id/tv6"
+            android:paddingBottom="30dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
-            android:orientation="horizontal"
-            android:paddingBottom="20dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv4"
@@ -102,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/lexenddeca"
-                android:text="999999"
+                android:text="0"
                 android:textColor="#F44336"
                 android:textSize="12dp"
                 android:textStyle="bold" />

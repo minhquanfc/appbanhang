@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.onlineshop.Activity.DonHangActivity;
 import com.poly.onlineshop.Activity.LoginActivity;
 import com.poly.onlineshop.Activity.ThayDoiActivity;
 import com.poly.onlineshop.R;
@@ -49,6 +50,14 @@ public class AccountFragment extends Fragment {
         tv_gioithieu = view.findViewById(R.id.tv_gioithieu);
         tv_hotro = view.findViewById(R.id.tv_hotro);
         tv_dangxuat = view.findViewById(R.id.tv_dangxuat);
+
+        tv_donhangcuatoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DonHangActivity.class);
+                startActivity(intent);
+            }
+        });
 
         img_edit.setOnClickListener(new View.OnClickListener() {
             @Override
