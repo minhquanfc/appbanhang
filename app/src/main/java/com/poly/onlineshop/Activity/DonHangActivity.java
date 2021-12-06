@@ -34,7 +34,6 @@ public class DonHangActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView recyclerView;
     DonHangAdapter adapter;
-    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +78,6 @@ public class DonHangActivity extends AppCompatActivity {
                 DonHang donHang = snapshot.getValue(DonHang.class);
                 if (donHang !=null){
                     donHangList.add(donHang);
-                    progressBar.setVisibility(View.GONE);
                 }
                 adapter.notifyDataSetChanged();
 

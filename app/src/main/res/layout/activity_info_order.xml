@@ -184,6 +184,13 @@
             android:id="@+id/tv_trangthai_donhang"
             android:paddingLeft="10dp"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sản phẩm"
+        android:id="@+id/tv10"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

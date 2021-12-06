@@ -20,57 +20,67 @@
             android:id="@+id/tv3"
             android:textStyle="bold"/>
     </RelativeLayout>
+
     <RelativeLayout
+        android:id="@+id/layout2"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_below="@id/layout1"
-        android:id="@+id/layout2">
+        android:layout_height="80dp"
+        android:layout_below="@id/layout1">
+
         <ImageView
+            android:id="@+id/img_icondiachia"
             android:layout_width="8dp"
             android:layout_height="13dp"
-            android:src="@drawable/icondiachi"
-            android:layout_margin="20dp"
-            android:id="@+id/img_icondiachia"/>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/icondiachi" />
 
         <TextView
+            android:id="@+id/tv_ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/lexenddeca"
-            android:text="Ha noi"
-            android:textSize="12dp"
-            android:id="@+id/tv_diachi"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/lexenddeca"
             android:text="abc"
-            android:textSize="12dp"
-            android:id="@+id/tv_ten"/>
+            android:textSize="12dp" />
+
         <TextView
+            android:id="@+id/tv_diachi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:layout_marginTop="20dp"
+            android:layout_below="@+id/tv_ten"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/lexenddeca"
+            android:text="abc"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tv_sdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_diachi"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/lexenddeca"
             android:text="099999"
-            android:textSize="12dp"
-            android:id="@+id/tv_sdt"/>
+            android:textSize="12dp" />
+
         <TextView
+            android:id="@+id/tv_thaydiachi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thay đổi địa chỉ"
-            android:id="@+id/tv_thaydiachi"
-            android:fontFamily="@font/lexenddeca"
-            android:textSize="12dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/mau_xanh"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"/>
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:fontFamily="@font/lexenddeca"
+            android:text="Thay đổi địa chỉ"
+            android:textColor="@color/mau_xanh"
+            android:textSize="12dp" />
     </RelativeLayout>
 
     <RelativeLayout

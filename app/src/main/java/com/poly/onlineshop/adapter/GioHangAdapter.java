@@ -1,7 +1,9 @@
 package com.poly.onlineshop.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -27,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.poly.onlineshop.MainActivity;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.model.GioHang;
 
@@ -37,7 +40,6 @@ import java.util.List;
 public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
     Context context;
     List<GioHang> gioHangList;
-    int tonggia = 0;
     int tongtien = 0;
 
     public GioHangAdapter(Context context, List<GioHang> gioHangList) {
@@ -48,7 +50,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
     @NonNull
     @Override
     public GioHangHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_giohang,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_giohang, parent, false);
         return new GioHangHolder(view);
     }
 
@@ -65,24 +67,35 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
         holder.img_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                XoaData();
-                gioHangList.remove(position);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                DatabaseReference reference = database.getReference("GioHang");
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Bạn có muốn xóa không?");
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        reference.child(user.getUid()).child(gioHang.getId()).removeValue();
+                        gioHangList.remove(position);
+                        dialog.dismiss();
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
                 notifyDataSetChanged();
             }
         });
-
-        tongtien = tongtien + gioHangList.get(position).getTongTien();
+        tongtien += gioHangList.get(position).getTongTien();//cong don tien
         Intent intent = new Intent("Tongtien");
-        intent.putExtra("tong",tongtien);
+        intent.putExtra("tongtien", tongtien);
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
-    private void XoaData() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = database.getReference("GioHang");
-        reference.child(user.getUid()).removeValue();
-    }
-
 
     @Override
     public int getItemCount() {

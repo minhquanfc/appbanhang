@@ -1,13 +1,16 @@
 package com.poly.onlineshop.fragment;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +43,7 @@ import com.poly.onlineshop.model.GioHang;
 import com.poly.onlineshop.model.User;
 
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +52,7 @@ import java.util.Map;
 public class GioHangFragment extends Fragment {
 
     RecyclerView recyclerView;
-    TextView tv_thaydiachi, tv_tongtien, tv_diachi,tv_ten,tv_sdt;
+    TextView tv_thaydiachi, tv_tongtien, tv_diachi, tv_ten, tv_sdt;
     Button btn_thanhtoan;
     List<GioHang> gioHangList;
     GioHangAdapter adapter;
@@ -55,6 +60,7 @@ public class GioHangFragment extends Fragment {
     FirebaseDatabase database;
     DatabaseReference reference;
     String idUser;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,6 +73,7 @@ public class GioHangFragment extends Fragment {
         tv_diachi = view.findViewById(R.id.tv_diachi);
         tv_ten = view.findViewById(R.id.tv_ten);
         tv_sdt = view.findViewById(R.id.tv_sdt);
+        progressDialog = new ProgressDialog(getContext());
         user = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
         idUser = user.getUid();
@@ -82,10 +89,10 @@ public class GioHangFragment extends Fragment {
         btn_thanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (gioHangList.isEmpty()){
+                if (gioHangList.isEmpty()) {
                     btn_thanhtoan.setEnabled(true);
                     Toast.makeText(getContext(), "Vui lòng thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     addDataOrder();
                 }
             }
@@ -94,13 +101,22 @@ public class GioHangFragment extends Fragment {
         //lay dia chi
         getDiaChi();
         // hien thi gio hang
-        setVisibilityGioHang();
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, new IntentFilter("Tongtien"));
-
+        setVisibilityGioHang();
         return view;
     }
 
+    public BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @RequiresApi(api = Build.VERSION_CODES.N)
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int tongtien = intent.getIntExtra("tongtien", 0);
+            tv_tongtien.setText(tongtien + "");
+        }
+    };
+
     private void addDataOrder() {
+        progressDialog.show();
         DatabaseReference myRef = database.getReference("DonHang");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String idUser = user.getUid();
@@ -120,16 +136,16 @@ public class GioHangFragment extends Fragment {
         map.put("trangThai", "Đang chờ xác nhận");
         //id tu dong
         String key = myRef.push().getKey();
-        map.put("idOrder",key);
+        map.put("idOrder", key);
         myRef.child(idUser).child(key).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                for (GioHang gioHang : gioHangList){
+                for (GioHang gioHang : gioHangList) {
                     myRef.child(idUser).child(key).child("Chitiet").child(myRef.push().getKey())
                             .setValue(gioHang).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(getContext(),"Đã đăng ký đơn hàng",Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
                             gioHangList.clear();
                             XoaData();
                         }
@@ -183,9 +199,10 @@ public class GioHangFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 GioHang gioHang = snapshot.getValue(GioHang.class);
-//                gioHang.setTenSanpham(snapshot.getKey());
-                if (gioHang !=null){
+                gioHang.setId(snapshot.getKey());
+                if (gioHang != null) {
                     gioHangList.add(gioHang);
+
                     adapter.notifyDataSetChanged();
                 }
             }
@@ -193,12 +210,12 @@ public class GioHangFragment extends Fragment {
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 GioHang gioHang = snapshot.getValue(GioHang.class);
-                if (gioHang == null || gioHangList == null ||  gioHangList.isEmpty()){
+                if (gioHang == null || gioHangList == null || gioHangList.isEmpty()) {
                     return;
                 }
-                for (int i=0 ;i<gioHangList.size();i++){
-                    if (gioHang.getTenSanpham()== gioHangList.get(i).getTenSanpham()){
-                        gioHangList.set(i,gioHang);
+                for (int i = 0; i < gioHangList.size(); i++) {
+                    if (gioHang.getTenSanpham() == gioHangList.get(i).getTenSanpham()) {
+                        gioHangList.set(i, gioHang);
                         break;
                     }
                 }
@@ -208,15 +225,16 @@ public class GioHangFragment extends Fragment {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
                 GioHang gioHang = snapshot.getValue(GioHang.class);
-                if (gioHang == null || gioHangList == null ||  gioHangList.isEmpty()){
+                if (gioHang == null || gioHangList == null || gioHangList.isEmpty()) {
                     return;
                 }
-                for (int i=0 ;i<gioHangList.size();i++){
-                    if (gioHang.getTenSanpham()== gioHangList.get(i).getTenSanpham()){
+                for (int i = 0; i < gioHangList.size(); i++) {
+                    if (gioHang.getTenSanpham() == gioHangList.get(i).getTenSanpham()) {
                         gioHangList.remove(gioHangList.get(i));
                         break;
                     }
                 }
+
                 adapter.notifyDataSetChanged();
             }
 
@@ -242,6 +260,8 @@ public class GioHangFragment extends Fragment {
                     if (user1 != null) {
                         String diachi = user1.getDiachi();
                         tv_diachi.setText(diachi);
+                        tv_sdt.setText(user1.getSdt());
+                        tv_ten.setText(user1.getHoTen());
                     }
                 }
             }
@@ -253,11 +273,4 @@ public class GioHangFragment extends Fragment {
         });
     }
 
-    public BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            int bill = intent.getIntExtra("tong", 0);
-            tv_tongtien.setText(bill + "");
-        }
-    };
 }

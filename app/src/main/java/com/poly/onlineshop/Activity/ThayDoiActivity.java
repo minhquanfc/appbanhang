@@ -1,18 +1,34 @@
 package com.poly.onlineshop.Activity;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
@@ -21,9 +37,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.onlineshop.MainActivity;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.model.User;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +53,7 @@ public class ThayDoiActivity extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference reference;
     String idUser;
-
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +64,7 @@ public class ThayDoiActivity extends AppCompatActivity {
         ed_diachi_thaydoi = findViewById(R.id.ed_diachi_thaydoi);
         ed_hoTen_thaydoi = findViewById(R.id.ed_hoTen_thaydoi);
         btn_thaydoi = findViewById(R.id.btn_thaydoi);
+        progressDialog =new ProgressDialog(this);
         setSupportActionBar(toolbar);
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("User");
@@ -53,6 +72,8 @@ public class ThayDoiActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ed_mail_thaydoi.setEnabled(false);
+
+        //hien thi du lieu
         reference.child(idUser).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -66,6 +87,7 @@ public class ThayDoiActivity extends AppCompatActivity {
                     ed_mail_thaydoi.setText(email);
                     ed_sdt_thaydoi.setText(sdt);
                     ed_diachi_thaydoi.setText(diachi);
+//                    Glide.with(ThayDoiActivity.this).load(user.getPhotoUrl()).error(R.drawable.iphone13).into(avt_profile);
                 }
             }
 
@@ -109,8 +131,38 @@ public class ThayDoiActivity extends AppCompatActivity {
         });
     }
 
+//    private void updatePass() {
+//        String sdt1 = ed_sdt_thaydoi.getText().toString().trim();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        user.updatePassword(sdt1)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                        }
+//                    }
+//                });
+//    }
+//
+//    private void UpdateEmail() {
+//        String email = ed_mail_thaydoi.getText().toString().trim();
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        user.updateEmail(email)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(ThayDoiActivity.this, "Thay email ok", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//    }
+
+
     private void UpdateProfile() {
+        progressDialog.show();
         String name = ed_hoTen_thaydoi.getText().toString().trim();
+        String email = ed_mail_thaydoi.getText().toString().trim();
         String sdt1 = ed_sdt_thaydoi.getText().toString().trim();
         String diachi1 = ed_diachi_thaydoi.getText().toString().trim();
         Map<String, Object> map = new HashMap<>();
@@ -120,11 +172,22 @@ public class ThayDoiActivity extends AppCompatActivity {
         reference.child(idUser).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                progressDialog.dismiss();
                 Toast.makeText(ThayDoiActivity.this, "Thay đổi thành công", Toast.LENGTH_SHORT).show();
             }
         });
     }
-
+//    private void Reauthenticate(){
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        AuthCredential credential = EmailAuthProvider
+//                .getCredential("user@example.com", "password1234");
+//        user.reauthenticate(credential)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                    }
+//                });
+//    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {

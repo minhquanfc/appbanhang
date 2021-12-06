@@ -21,7 +21,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.model.User;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -104,8 +106,14 @@ public class SignupActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             progressDialog.dismiss();
-                            User user = new User(hoTen, email, password, sdt, diachi);
-                            database.getReference("User").child(firebaseAuth.getCurrentUser().getUid()).setValue(user);
+//                            User user = new User(hoTen, email, password, sdt, diachi);
+                            Map<String,Object> map = new HashMap<>();
+                            map.put("hoTen",hoTen);
+                            map.put("email",email);
+                            map.put("pass",password);
+                            map.put("sdt",sdt);
+                            map.put("diachi",diachi);
+                            database.getReference("User").child(firebaseAuth.getCurrentUser().getUid()).setValue(map);
                             Toast.makeText(SignupActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                             startActivity(intent);
@@ -125,37 +133,5 @@ public class SignupActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    private void Check() {
-        if (ed_email_signin.getText().toString().isEmpty()) {
-            Toast.makeText(SignupActivity.this, "Vui lòng nhập email", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (ed_pass_signin.getText().length() == 0) {
-            Toast.makeText(SignupActivity.this, "Vui lòng nhập mật khẩu", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (ed_sdt_signin.getText().length() == 0) {
-            Toast.makeText(SignupActivity.this, "Vui lòng nhập số điện thoại", Toast.LENGTH_SHORT).show();
-            return;
-        } else if (ed_diachi_signin.getText().length() == 0) {
-            Toast.makeText(SignupActivity.this, "Vui lòng nhập địa chỉ", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        int numpass;
-        try {
-            numpass = Integer.parseInt(ed_pass_signin.getText().toString());
-        } catch (Exception e) {
-            Toast.makeText(SignupActivity.this, "Vui lòng nhập mật khẩu là số", Toast.LENGTH_SHORT).show();
-            ed_pass_signin.requestFocus();
-            return;
-        }
-        int numsdt;
-        try {
-            numsdt = Integer.parseInt(ed_sdt_signin.getText().toString());
-        } catch (Exception e) {
-            Toast.makeText(SignupActivity.this, "Vui lòng nhập số điện thoại là số", Toast.LENGTH_SHORT).show();
-            ed_sdt_signin.requestFocus();
-            return;
-        }
     }
 }

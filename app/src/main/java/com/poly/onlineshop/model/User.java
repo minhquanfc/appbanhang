@@ -6,16 +6,18 @@ public class User {
     public String pass;
     public String sdt;
     public String diachi;
+    public String anh;
 
     public User() {
     }
 
-    public User(String hoTen, String email, String pass, String sdt, String diachi) {
+    public User(String hoTen, String email, String pass, String sdt, String diachi, String anh) {
         this.hoTen = hoTen;
         this.email = email;
         this.pass = pass;
         this.sdt = sdt;
         this.diachi = diachi;
+        this.anh = anh;
     }
 
     public String getHoTen() {
@@ -56,5 +58,13 @@ public class User {
 
     public void setDiachi(String diachi) {
         this.diachi = diachi;
+    }
+
+    public String getAnh() {
+        return anh;
+    }
+
+    public void setAnh(String anh) {
+        this.anh = anh;
     }
 }

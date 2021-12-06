@@ -118,14 +118,14 @@ public class ChiTietActivity extends AppCompatActivity {
         String giasp = tv_gia_chitiet.getText().toString();
 
         Map<String, Object> cartMap = new HashMap<>();
+        String key = mRef.push().getKey();
+        cartMap.put("id",key);
         cartMap.put("tenSanpham", tensp);
         cartMap.put("giaSanpham", Integer.valueOf(giasp));
         cartMap.put("soLuong", soLuong);
         tonggia = sanPham.getGia() * soLuong;
         cartMap.put("tongTien", tonggia);
         cartMap.put("anh", sanPham.getAnh());
-        String key = mRef.push().getKey();
-
         mRef.child(idUser).child(key).setValue(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

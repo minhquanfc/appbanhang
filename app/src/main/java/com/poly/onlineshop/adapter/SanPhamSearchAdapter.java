@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.model.SanPham;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,8 @@ public class SanPhamSearchAdapter extends ArrayAdapter<SanPham> {
 
         Glide.with(imgSearch.getContext()).load(product.getAnh()).into(imgSearch);
         tvSearchName.setText(product.getTen());
-        tvSearchPrice.setText(String.valueOf(product.getGia()+"Vnd"));
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        tvSearchPrice.setText(decimalFormat.format(product.getGia()+"đ"));
         return convertView;
     }
     @NonNull

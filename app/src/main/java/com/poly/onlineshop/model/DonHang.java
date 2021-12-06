@@ -1,6 +1,8 @@
 package com.poly.onlineshop.model;
 
-public class DonHang {
+import java.io.Serializable;
+
+public class DonHang implements Serializable {
     private String idOrder;
     private String diaChi;
     private String hoTen;
