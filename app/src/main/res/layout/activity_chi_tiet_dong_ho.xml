@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_chitiet_dongho"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/mau_xanh"
+                app:titleTextColor="@color/white"
+                app:title="Chi tiết"
+                app:titleTextAppearance="@style/Toolbar.TitleText"/>
+
+            <ImageView
+                android:id="@+id/img_sp_chitiet_dongho"
+                android:layout_width="335dp"
+                android:layout_height="300dp"
+                android:layout_below="@+id/toolbar_chitiet_dongho"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/iphone13" />
+
+            <TextView
+                android:id="@+id/tv_tensp_chitiet_dongho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_sp_chitiet_dongho"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/lexenddeca"
+                android:text="Samsung Galaxy Z Fold3 5G 512GB"
+                android:textColor="@color/mau_den"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/linear_chitiet_dongho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_tensp_chitiet_dongho"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/tv_gia_chitiet_dongho"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/lexenddeca"
+                    android:text="99999999"
+                    android:textColor="#F44336"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lexenddeca"
+                    android:text="đ"
+                    android:textColor="#F44336"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_chitiet1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_chitiet_dongho"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/lexenddeca"
+                android:text="Chi tiết sản phẩm"
+                android:textColor="@color/mau_den"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_mota_chitiet_dongho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_chitiet1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/lexenddeca"
+                android:text="Galaxy Z Fold3 5G đánh dấu bước tiến mới của Samsung
+ trong phân khúc điện thoại gập cao cấp khi được cải tiến
+ về độ bền cùng những nâng cấp đáng giá về cấu hình
+hiệu năng, hứa hẹn sẽ mang đến trải nghiệm sử dụng đột
+phá cho người dùng."
+                android:textColor="@color/skip"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:paddingBottom="50dp"/>
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
+        app:layout_constraintVertical_bias="0.923"
+        tools:ignore="MissingConstraints"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/imgtru"
+            android:id="@+id/btn_tru_sp_dongho"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_soluong_sp_dongho" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/imgcong"
+            android:id="@+id/btn_cong_sp_dongho"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"/>
+        <Button
+            android:id="@+id/btn_add_giohang_dongho"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/mau_xanh"
+            android:fontFamily="@font/lexenddeca"
+            android:text="Thêm vào giỏ hàng"
+            android:textSize="12dp"
+            android:layout_marginLeft="50dp"/>
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btn_muangay"-->
+        <!--            android:layout_width="150dp"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:layout_marginLeft="20dp"-->
+        <!--            android:backgroundTint="@color/mau_xanh"-->
+        <!--            android:fontFamily="@font/lexenddeca"-->
+        <!--            android:text="Mua ngay"-->
+        <!--            android:textSize="14dp" />-->
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

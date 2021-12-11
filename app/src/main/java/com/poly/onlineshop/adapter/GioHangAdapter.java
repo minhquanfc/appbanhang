@@ -91,7 +91,12 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
                 notifyDataSetChanged();
             }
         });
-        tongtien += gioHangList.get(position).getTongTien();//cong don tien
+
+        tongtien = 0;
+        for(int i=0;i<gioHangList.size();i++)
+        {
+            tongtien += gioHangList.get(i).getTongTien();
+        }
         Intent intent = new Intent("Tongtien");
         intent.putExtra("tongtien", tongtien);
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent);

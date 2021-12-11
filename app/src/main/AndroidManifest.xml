@@ -3,7 +3,7 @@
     package="com.poly.onlineshop">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,24 +13,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShop">
         <activity
+            android:name=".Activity.ChiTietDongHoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.YeuThichActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.GioHangActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.DatHangThanhCongActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.LoadActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.DoiMatKhauActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.CaiDatActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity.InfoOrderActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.DonHangActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activity.ThayDoiActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.DanhSachActivity"
             android:exported="true" />
@@ -42,15 +62,13 @@
             android:exported="true" />
         <activity
             android:name=".Activity.LoginActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ActivityGioiThieu.OnBoardingActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>

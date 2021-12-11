@@ -1,10 +1,14 @@
 package com.poly.onlineshop.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,9 +27,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.poly.onlineshop.Activity.CaiDatActivity;
 import com.poly.onlineshop.Activity.DonHangActivity;
+import com.poly.onlineshop.Activity.GioHangActivity;
 import com.poly.onlineshop.Activity.LoginActivity;
 import com.poly.onlineshop.Activity.ThayDoiActivity;
+import com.poly.onlineshop.Activity.YeuThichActivity;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.model.User;
 
@@ -58,7 +65,13 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        tv_caidat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CaiDatActivity.class);
+                startActivity(intent);
+            }
+        });
         img_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,14 +79,18 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        tv_giohang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), GioHangActivity.class);
+                startActivity(intent);
+            }
+        });
         //dang xuat
         tv_dangxuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(getActivity(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
+                signOut();
             }
         });
         getInforUser();
@@ -81,10 +98,33 @@ public class AccountFragment extends Fragment {
         tv_yeuthich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getActivity(), YeuThichActivity.class);
+                startActivity(intent);
             }
         });
         return view;
+    }
+
+    private void signOut() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Bạn có muốn đăng xuất không?");
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getActivity(), "Đăng xuất thành công", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 
     private void getInforUser() {

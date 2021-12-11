@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DatHangThanhCongActivity"
+    android:id="@+id/dathangthanhcong">
+
+    <ImageView
+        android:id="@+id/img_thanhcong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/thanhcong"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lexenddeca"
+        android:text=" Đặt hàng thành công ."
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/img_thanhcong"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/img_thanhcong"
+        app:layout_constraintTop_toBottomOf="@+id/img_thanhcong"
+        app:layout_constraintVertical_bias="0.076"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv2"
+        app:layout_constraintVertical_bias="0.9"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/btn_trangchu"
+            android:layout_width="335dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/mau_xanh"
+            android:fontFamily="@font/lexenddeca"
+            android:text="Trang chủ"
+            android:textSize="12dp" />
+
+        <Button
+            android:id="@+id/btn_xem_donhang"
+            android:layout_width="335dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/btn_trangchu"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/mau_xanh"
+            android:text="Xem đơn hàng"
+            android:fontFamily="@font/lexenddeca"
+            android:textSize="12dp"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.favoriteFragment"
     android:id="@+id/fragment_giohang"
     android:background="@color/white">
@@ -11,16 +12,14 @@
         android:layout_height="60dp"
         android:background="@color/mau_xanh"
         android:id="@+id/layout1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Giỏ hàng"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/tv3"
-            android:textStyle="bold"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_giohang"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/mau_xanh"
+            app:title="Giỏ hàng"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            app:titleTextColor="@color/white" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -30,7 +29,7 @@
         android:layout_below="@id/layout1">
 
         <ImageView
-            android:id="@+id/img_icondiachia"
+            android:id="@+id/img_icondiachia2"
             android:layout_width="8dp"
             android:layout_height="13dp"
             android:layout_marginStart="20dp"
@@ -40,7 +39,7 @@
             android:src="@drawable/icondiachi" />
 
         <TextView
-            android:id="@+id/tv_ten"
+            android:id="@+id/tv_ten2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -50,10 +49,10 @@
             android:textSize="12dp" />
 
         <TextView
-            android:id="@+id/tv_diachi"
+            android:id="@+id/tv_diachi2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_ten"
+            android:layout_below="@+id/tv_ten2"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/lexenddeca"
@@ -61,10 +60,10 @@
             android:textSize="12dp" />
 
         <TextView
-            android:id="@+id/tv_sdt"
+            android:id="@+id/tv_sdt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_diachi"
+            android:layout_below="@+id/tv_diachi2"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/lexenddeca"
@@ -72,7 +71,7 @@
             android:textSize="12dp" />
 
         <TextView
-            android:id="@+id/tv_thaydiachi"
+            android:id="@+id/tv_thaydiachi2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -102,7 +101,7 @@
             android:textColor="@color/mau_den" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rc_view_giohang"
+            android:id="@+id/rc_view_giohang2"
             android:layout_width="match_parent"
             android:layout_height="600dp"
             android:layout_below="@id/tv6"
@@ -127,7 +126,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_tongtien"
+                android:id="@+id/tv_tongtien2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -149,7 +148,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btn_thanhtoan"
+                android:id="@+id/btn_thanhtoan2"
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="80dp"

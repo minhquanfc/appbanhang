@@ -30,7 +30,7 @@ import java.util.List;
 
 public class InfoOrderActivity extends AppCompatActivity {
 
-    TextView tv_ten_nguoi_nhan,tv_sdt_donhang,tv_diachi_donhang,tv_soluong_donhang,tv_thanhtien_donhang,tv_trangthai_donhang;
+    TextView tv_ten_nguoi_nhan,tv_sdt_donhang,tv_diachi_donhang,tv_soluong_donhang,tv_thanhtien_donhang,tv_trangthai_donhang,tv_time_donhang;
     RecyclerView rc_view_info_donhang;
     Toolbar toolbar;
     List<ChiTietDH> donHangList;
@@ -49,6 +49,7 @@ public class InfoOrderActivity extends AppCompatActivity {
         tv_thanhtien_donhang = findViewById(R.id.tv_thanhtien_donhang);
         tv_trangthai_donhang = findViewById(R.id.tv_trangthai_donhang);
         rc_view_info_donhang = findViewById(R.id.rc_view_info_donhang);
+        tv_time_donhang = findViewById(R.id.tv_time_donhang);
 
         donHangList = new ArrayList<>();
         setSupportActionBar(toolbar);
@@ -66,6 +67,7 @@ public class InfoOrderActivity extends AppCompatActivity {
             tv_thanhtien_donhang.setText(decimalFormat.format(donHang.getTongTien())+"đ");
             tv_soluong_donhang.setText(String.valueOf(donHang.getSoLuong()));
             tv_trangthai_donhang.setText(donHang.getTrangThai());
+            tv_time_donhang.setText(donHang.getNgayMua());
         }
 
         //hien thi list san pham da mua

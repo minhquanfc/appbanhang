@@ -26,6 +26,7 @@
             android:layout_marginLeft="30dp"
             android:id="@+id/tv"
             android:textStyle="bold"/>
+
         <EditText
             android:id="@+id/ed_hoTen_thaydoi"
             android:layout_width="330dp"
@@ -34,7 +35,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_edittext"
-            android:paddingLeft="20dp"/>
+            android:paddingLeft="20dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,17 +101,18 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:paddingLeft="20dp"/>
+
         <Button
+            android:id="@+id/btn_thaydoi"
             android:layout_width="335dp"
             android:layout_height="52dp"
-            android:id="@+id/btn_thaydoi"
-            android:backgroundTint="@color/mau_xanh"
-            android:text="Thay đổi"
-            android:fontFamily="@font/lexenddeca"
-            android:textSize="14dp"
-            android:layout_marginBottom="35dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="35dp"
+            android:backgroundTint="@color/mau_xanh"
+            android:fontFamily="@font/lexenddeca"
+            android:text="Thay đổi"
+            android:textSize="14dp" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

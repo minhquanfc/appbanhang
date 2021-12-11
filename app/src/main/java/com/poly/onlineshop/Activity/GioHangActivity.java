@@ -1,4 +1,13 @@
-package com.poly.onlineshop.fragment;
+package com.poly.onlineshop.Activity;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -7,20 +16,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,22 +33,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.poly.onlineshop.Activity.LoadActivity;
-import com.poly.onlineshop.Activity.ThayDoiActivity;
-import com.poly.onlineshop.MainActivity;
 import com.poly.onlineshop.R;
 import com.poly.onlineshop.adapter.GioHangAdapter;
 import com.poly.onlineshop.model.GioHang;
 import com.poly.onlineshop.model.User;
 
 import java.sql.Date;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GioHangFragment extends Fragment {
+public class GioHangActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     TextView tv_thaydiachi, tv_tongtien, tv_diachi, tv_ten, tv_sdt;
@@ -62,29 +55,32 @@ public class GioHangFragment extends Fragment {
     FirebaseDatabase database;
     DatabaseReference reference;
     String idUser;
-    ProgressDialog progressDialog;
+    Toolbar toolbar;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_gio_hang, container, false);
-        recyclerView = view.findViewById(R.id.rc_view_giohang);
-        tv_thaydiachi = view.findViewById(R.id.tv_thaydiachi);
-        tv_tongtien = view.findViewById(R.id.tv_tongtien);
-        btn_thanhtoan = view.findViewById(R.id.btn_thanhtoan);
-        tv_diachi = view.findViewById(R.id.tv_diachi);
-        tv_ten = view.findViewById(R.id.tv_ten);
-        tv_sdt = view.findViewById(R.id.tv_sdt);
-        progressDialog = new ProgressDialog(getContext());
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gio_hang);
+        recyclerView = findViewById(R.id.rc_view_giohang2);
+        tv_thaydiachi = findViewById(R.id.tv_thaydiachi2);
+        tv_tongtien = findViewById(R.id.tv_tongtien2);
+        btn_thanhtoan = findViewById(R.id.btn_thanhtoan2);
+        tv_diachi = findViewById(R.id.tv_diachi2);
+        tv_ten = findViewById(R.id.tv_ten2);
+        tv_sdt = findViewById(R.id.tv_sdt2);
+        toolbar = findViewById(R.id.toolbar_giohang);
         user = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
         idUser = user.getUid();
         gioHangList = new ArrayList<>();
+        
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tv_thaydiachi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ThayDoiActivity.class);
+                Intent intent = new Intent(GioHangActivity.this, ThayDoiActivity.class);
                 startActivity(intent);
             }
         });
@@ -93,23 +89,20 @@ public class GioHangFragment extends Fragment {
             public void onClick(View v) {
                 if (gioHangList.isEmpty()) {
                     btn_thanhtoan.setEnabled(true);
-                    Toast.makeText(getContext(), "Vui lòng thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GioHangActivity.this, "Vui lòng thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(getContext(), LoadActivity.class);
+                    Intent intent = new Intent(GioHangActivity.this, LoadActivity.class);
                     startActivity(intent);
                     addDataOrder();
                 }
             }
         });
 
-        //lay dia chi
         getDiaChi();
-        // hien thi gio hang
-        LocalBroadcastManager.getInstance(getContext()).registerReceiver(broadcastReceiver, new IntentFilter("Tongtien"));
         setVisibilityGioHang();
-        return view;
-    }
+        LocalBroadcastManager.getInstance(GioHangActivity.this).registerReceiver(broadcastReceiver, new IntentFilter("Tongtien"));
 
+    }
     public BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
@@ -165,9 +158,9 @@ public class GioHangFragment extends Fragment {
     }
 
     private void setVisibilityGioHang() {
-        adapter = new GioHangAdapter(getContext(), gioHangList);
+        adapter = new GioHangAdapter(GioHangActivity.this, gioHangList);
         recyclerView.setAdapter(adapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(GioHangActivity.this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         getDataGiohang();
     }
@@ -176,27 +169,6 @@ public class GioHangFragment extends Fragment {
         //doc du lieu tu realtime database
         DatabaseReference reference1;
         reference1 = database.getReference("GioHang");
-        //cach 1
-//        reference1.child(idUser).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (gioHangList !=null){
-//                    gioHangList.clear();
-//                }
-//                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                    GioHang gioHang = dataSnapshot.getValue(GioHang.class);
-//                    gioHangList.add(gioHang);
-//                }
-//                adapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-        //cach 2
         reference1.child(idUser).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -273,5 +245,12 @@ public class GioHangFragment extends Fragment {
 
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId()==android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

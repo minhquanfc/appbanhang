@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DoiMatKhauActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_doipass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/mau_xanh"
+            app:titleTextColor="@color/white"
+            app:title="Chi tiết"
+            app:titleTextAppearance="@style/Toolbar.TitleText"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_passmoi"
+            android:text="Mật khẩu mới"
+            android:layout_below="@id/toolbar_doipass"
+            android:layout_marginTop="20dp"
+            android:textSize="12dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/lexenddeca"/>
+        <EditText
+            android:id="@+id/ed_pass_moi"
+            android:layout_width="330dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/tv_passmoi"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:hint="Mật khẩu mới"
+            android:inputType="numberPassword"
+            android:background="@drawable/bg_edittext"
+            android:paddingLeft="20dp" />
+        <Button
+            android:id="@+id/btn_doi_mat_khau"
+            android:layout_width="335dp"
+            android:layout_height="52dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="35dp"
+            android:backgroundTint="@color/mau_xanh"
+            android:fontFamily="@font/lexenddeca"
+            android:text="Đổi mật khẩu"
+            android:textSize="14dp"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

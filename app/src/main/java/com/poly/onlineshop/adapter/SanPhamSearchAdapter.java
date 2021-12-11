@@ -45,8 +45,7 @@ public class SanPhamSearchAdapter extends ArrayAdapter<SanPham> {
 
         Glide.with(imgSearch.getContext()).load(product.getAnh()).into(imgSearch);
         tvSearchName.setText(product.getTen());
-        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        tvSearchPrice.setText(decimalFormat.format(product.getGia()+"đ"));
+        tvSearchPrice.setText(product.getGia()+"đ");
         return convertView;
     }
     @NonNull

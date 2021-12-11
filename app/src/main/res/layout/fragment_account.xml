@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AccountFragment">
+    tools:context=".fragment.AccountFragment"
+    android:id="@+id/fragment_tai_khoan">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -66,16 +67,17 @@
                 android:src="@drawable/shopping2"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_donhangcuatoi"
-                android:text="Đơn hàng của tôi"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Đơn hàng của tôi"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,16 +89,17 @@
                 android:src="@drawable/yeuthich"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_yeuthich"
-                android:text="Yêu thích"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Yêu thích"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,16 +111,17 @@
                 android:src="@drawable/caidat"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_caidat"
-                android:text="Cài đặt"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Cài đặt"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -129,16 +133,17 @@
                 android:src="@drawable/shopping3"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_giohang"
-                android:text="Giỏ hàng"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Giỏ hàng"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -150,16 +155,17 @@
                 android:src="@drawable/danhgia"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_danhgia"
-                android:text="Đánh giá"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Đánh giá"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -171,16 +177,17 @@
                 android:src="@drawable/chiase"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_gioithieu"
-                android:text="Giới thiệu"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Giới thiệu"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -192,16 +199,17 @@
                 android:src="@drawable/question"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_hotro"
-                android:text="Hỗ trợ"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Hỗ trợ"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -213,16 +221,17 @@
                 android:src="@drawable/dangxuat"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"/>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/tv_dangxuat"
-                android:text="Đăng xuất"
-                android:fontFamily="@font/lexenddeca"
-                android:textColor="@color/mau_den2"
-                android:textSize="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
                 android:layout_marginTop="28dp"
-                android:layout_marginLeft="17dp"/>
+                android:fontFamily="@font/lexenddeca"
+                android:text="Đăng xuất"
+                android:textColor="@color/mau_den2"
+                android:textSize="14dp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

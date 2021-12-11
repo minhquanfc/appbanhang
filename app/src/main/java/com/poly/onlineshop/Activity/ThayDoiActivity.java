@@ -71,7 +71,7 @@ public class ThayDoiActivity extends AppCompatActivity {
         idUser = user.getUid();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ed_mail_thaydoi.setEnabled(false);
+//        ed_mail_thaydoi.setEnabled(false);
 
         //hien thi du lieu
         reference.child(idUser).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -131,32 +131,11 @@ public class ThayDoiActivity extends AppCompatActivity {
         });
     }
 
-//    private void updatePass() {
-//        String sdt1 = ed_sdt_thaydoi.getText().toString().trim();
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        user.updatePassword(sdt1)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                        }
-//                    }
-//                });
-//    }
-//
-//    private void UpdateEmail() {
-//        String email = ed_mail_thaydoi.getText().toString().trim();
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        user.updateEmail(email)
-//                .addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Toast.makeText(ThayDoiActivity.this, "Thay email ok", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//    }
+    private void UpdateEmail() {
+        String email = ed_mail_thaydoi.getText().toString().trim();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user.updateEmail(email);
+    }
 
 
     private void UpdateProfile() {
@@ -167,12 +146,14 @@ public class ThayDoiActivity extends AppCompatActivity {
         String diachi1 = ed_diachi_thaydoi.getText().toString().trim();
         Map<String, Object> map = new HashMap<>();
         map.put("hoTen", name);
+        map.put("email",email);
         map.put("sdt", sdt1);
         map.put("diachi", diachi1);
         reference.child(idUser).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 progressDialog.dismiss();
+                UpdateEmail();
                 Toast.makeText(ThayDoiActivity.this, "Thay đổi thành công", Toast.LENGTH_SHORT).show();
             }
         });

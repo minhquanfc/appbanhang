@@ -47,18 +47,19 @@
         android:paddingLeft="20dp"
         android:id="@+id/ed_email_signin"
         android:inputType="textEmailAddress"/>
+
     <EditText
+        android:id="@+id/ed_pass_signin"
         android:layout_width="335dp"
         android:layout_height="52dp"
         android:layout_below="@+id/ed_email_signin"
-        android:hint="Password"
-        android:fontFamily="@font/lexenddeca"
-        android:background="@drawable/bg_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/ed_pass_signin"
-        android:inputType="textPassword"/>
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/lexenddeca"
+        android:hint="Password"
+        android:inputType="numberPassword"
+        android:paddingLeft="20dp" />
     <EditText
         android:layout_width="335dp"
         android:layout_height="52dp"
