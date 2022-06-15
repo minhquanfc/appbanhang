@@ -17,12 +17,14 @@
             android:layout_height="95dp"
             android:src="@drawable/iphone13"
             android:id="@+id/img_sp_yeuthich"
-            android:layout_margin="10dp"/>
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="17.5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,7 +38,7 @@
                     android:textColor="@color/mau_den"
                     android:textSize="14dp"
                     android:textStyle="bold"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="20dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,8 +48,8 @@
                     android:textColor="#F44336"
                     android:textSize="14dp"
                     android:textStyle="bold"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginLeft="21dp"
+                    android:layout_marginTop="20dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,7 +59,8 @@
                     android:textColor="#F44336"
                     android:textSize="14dp"
                     android:textStyle="bold"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginRight="21dp"
+                    android:layout_marginTop="20dp"/>
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
@@ -66,44 +69,43 @@
                 android:text="Sản phẩm bán chạy"
                 android:fontFamily="@font/lexenddeca"
                 android:textColor="@color/skip"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 android:layout_marginTop="5dp"/>
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="72dp"
+                android:layout_height="11.41dp"
                 android:src="@drawable/sao"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="7.5dp"/>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="16dp">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:src="@drawable/imgtru"
-                    android:id="@+id/btn_tru_sp_yeuthich"
-                    android:layout_marginTop="8dp"/>
+                    android:id="@+id/btn_tru_sp_yeuthich" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="16dp"
                     android:id="@+id/tv_soluong_yeuthich"/>
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:src="@drawable/imgcong"
                     android:id="@+id/btn_cong_sp_yeuthich"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_marginLeft="10dp" />
                 <Button
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:backgroundTint="@color/mau_xanh"
                     android:text="Thêm"
                     android:layout_marginLeft="68dp"
+                    android:layout_marginRight="21dp"
                     android:id="@+id/btn_add_sp_yeuthich"/>
             </LinearLayout>
         </LinearLayout>

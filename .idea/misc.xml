@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/drawable/bg_button.xml" value="0.1" />
+        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/drawable/bg_button_them.xml" value="0.1085" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/drawable/bg_cardview.xml" value="0.15527426160337554" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/drawable/bg_cricle_red.xml" value="0.1" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/drawable/bg_edittext.xml" value="0.15726495726495726" />
@@ -22,7 +23,7 @@
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_info_order.xml" value="0.3333333333333333" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_load.xml" value="0.11730072463768115" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_login.xml" value="0.15384615384615385" />
-        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_main.xml" value="0.25685975609756095" />
+        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_on_boarding.xml" value="0.22" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_signin.xml" value="0.144017094017094" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/activity_splash.xml" value="0.1272644927536232" />
@@ -31,10 +32,10 @@
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_account.xml" value="0.16666666666666666" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_favorite.xml" value="0.13247863247863248" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_gio_hang.xml" value="0.16666666666666666" />
-        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_home.xml" value="0.12" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_on_boarding.xml" value="0.1" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_on_boarding2.xml" value="0.1" />
-        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_on_boarding3.xml" value="0.1" />
+        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/fragment_on_boarding3.xml" value="0.16666666666666666" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_chitiet_donhang.xml" value="0.14356884057971014" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_danhmuc.xml" value="0.3333333333333333" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_donhang.xml" value="0.22" />
@@ -44,7 +45,7 @@
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_photo.xml" value="0.144017094017094" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_sanpham.xml" value="0.3333333333333333" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_search.xml" value="0.144017094017094" />
-        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_yeuthich.xml" value="0.16666666666666666" />
+        <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/layout/item_yeuthich.xml" value="0.3333333333333333" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/menu/bottom_nav.xml" value="0.14666666666666667" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/menu/menu_save.xml" value="0.144017094017094" />
         <entry key="..\:/Androidproject/OnlineShop/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

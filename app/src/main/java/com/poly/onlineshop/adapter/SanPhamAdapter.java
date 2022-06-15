@@ -40,8 +40,9 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamHolder>{
     @Override
     public void onBindViewHolder(@NonNull SanPhamHolder holder, @SuppressLint("RecyclerView") int position) {
         SanPham sanPham = sanPhamList.get(position);
-        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        holder.tv_gia_sanpham.setText(decimalFormat.format(sanPham.getGia()));
+//        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+//        holder.tv_gia_sanpham.setText(decimalFormat.format(sanPham.getGia()));
+        holder.tv_gia_sanpham.setText(String.valueOf(sanPham.getGia() ));
         Glide.with(holder.img_sanpham.getContext()).load(sanPham.getAnh()).into(holder.img_sanpham);
         holder.tv_ten_sanpham.setText(sanPham.getTen());
         holder.click_sanpham.setOnClickListener(new View.OnClickListener() {

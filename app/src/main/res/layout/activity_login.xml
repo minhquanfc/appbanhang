@@ -12,18 +12,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:id="@+id/imglogo"/>
+
     <TextView
+        android:id="@+id/tv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Shop Online"
         android:layout_below="@+id/imglogo"
-        android:textStyle="bold"
-        android:textSize="48dp"
-        android:textColor="@color/mau_xanh"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/lexenddeca"
-        android:id="@+id/tv_logo"/>
+        android:text="Shop Online"
+        android:textColor="@color/mau_xanh"
+        android:textSize="48dp"
+        android:textStyle="bold" />
     <EditText
         android:layout_width="335dp"
         android:layout_height="52dp"
