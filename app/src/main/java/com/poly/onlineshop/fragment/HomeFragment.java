@@ -111,7 +111,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), DanhSachActivity.class);
-                intent.putExtra("type","dienthoai");
+                intent.putExtra("type","Điện thoại");
                 startActivity(intent);
             }
         });
@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), DanhSachActivity.class);
-                intent.putExtra("type","dongho");
+                intent.putExtra("type","Đồng hồ");
                 startActivity(intent);
             }
         });

@@ -133,11 +133,12 @@ public class GioHangActivity extends AppCompatActivity {
         //id tu dong
         String key = myRef.push().getKey();
         map.put("idOrder", key);
-        myRef.child(idUser).child(key).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        map.put("idUser", idUser);
+        myRef.child(key).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 for (GioHang gioHang : gioHangList) {
-                    myRef.child(idUser).child(key).child("Chitiet").child(myRef.push().getKey())
+                    myRef.child(key).child("Chitiet").child(myRef.push().getKey())
                             .setValue(gioHang).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

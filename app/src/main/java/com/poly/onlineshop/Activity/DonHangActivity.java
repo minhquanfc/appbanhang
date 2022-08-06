@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -57,13 +59,13 @@ public class DonHangActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference mRef = database.getReference("DonHang");
-//        mRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+//        mRef.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
 //                    DonHang donHang = dataSnapshot.getValue(DonHang.class);
 //                    donHangList.add(donHang);
-//                    progressBar.setVisibility(View.GONE);
+////                    progressBar.setVisibility(View.GONE);
 //                }
 //            }
 //
@@ -72,15 +74,22 @@ public class DonHangActivity extends AppCompatActivity {
 //
 //            }
 //        });
-        mRef.child(user.getUid()).addChildEventListener(new ChildEventListener() {
+//        if (user.getUid()== donHang.getIdOrder())
+        mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 DonHang donHang = snapshot.getValue(DonHang.class);
                 if (donHang !=null){
-                    donHangList.add(donHang);
+//                    donHangList.add(donHang);
+//                    Log.d("donhang",donHang.getIdUser());
+                    Log.d("donhang","id:"+user.getUid().equalsIgnoreCase(donHang.getIdUser()));
+                    if (user.getUid().equalsIgnoreCase(donHang.getIdUser())){
+                        donHangList.add(donHang);
+                        adapter.notifyDataSetChanged();
+                    }
+                }else {
+                    Toast.makeText(DonHangActivity.this, "Đơn hàng trống", Toast.LENGTH_SHORT).show();
                 }
-                adapter.notifyDataSetChanged();
-
             }
 
             @Override

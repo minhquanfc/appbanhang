@@ -82,7 +82,7 @@ public class InfoOrderActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference mRef = database.getReference("DonHang");
-        mRef.child(user.getUid()).child(keyid).child("Chitiet").addChildEventListener(new ChildEventListener() {
+        mRef.child(keyid).child("Chitiet").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 ChiTietDH donHang = snapshot.getValue(ChiTietDH.class);
@@ -113,6 +113,37 @@ public class InfoOrderActivity extends AppCompatActivity {
 
             }
         });
+//        mRef.child(user.getUid()).child(keyid).child("Chitiet").addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//                ChiTietDH donHang = snapshot.getValue(ChiTietDH.class);
+//                if (donHang !=null){
+//                    donHangList.add(donHang);
+//                }
+//                adapter.notifyDataSetChanged();
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
     }
 
     @Override

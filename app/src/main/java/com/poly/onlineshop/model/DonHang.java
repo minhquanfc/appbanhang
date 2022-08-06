@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class DonHang implements Serializable {
     private String idOrder;
+    private String idUser;
     private String diaChi;
     private String hoTen;
     private String soDienThoai;
@@ -15,8 +16,9 @@ public class DonHang implements Serializable {
     public DonHang() {
     }
 
-    public DonHang(String orderNo, String diaChi, String hoTen, String soDienThoai, String ngayMua, String trangThai, int soLuong, int tongTien) {
-        idOrder = orderNo;
+    public DonHang(String idOrder, String idUser, String diaChi, String hoTen, String soDienThoai, String ngayMua, String trangThai, int soLuong, int tongTien) {
+        this.idOrder = idOrder;
+        this.idUser = idUser;
         this.diaChi = diaChi;
         this.hoTen = hoTen;
         this.soDienThoai = soDienThoai;
@@ -30,8 +32,16 @@ public class DonHang implements Serializable {
         return idOrder;
     }
 
-    public void setIdOrder(String orderNo) {
-        idOrder = orderNo;
+    public void setIdOrder(String idOrder) {
+        this.idOrder = idOrder;
+    }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
     }
 
     public String getDiaChi() {
