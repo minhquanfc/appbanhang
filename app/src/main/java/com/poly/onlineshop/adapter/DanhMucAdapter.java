@@ -43,7 +43,7 @@ public class DanhMucAdapter extends RecyclerView.Adapter<DanhMucHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DanhSachActivity.class);
-                intent.putExtra("type",danhmucList.get(position).getLoai());
+                intent.putExtra("type",danhmucList.get(position).getTen());
                 context.startActivity(intent);
             }
         });

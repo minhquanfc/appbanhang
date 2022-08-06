@@ -3,7 +3,7 @@ package com.poly.onlineshop.model;
 public class Danhmuc {
     public String ten;
     public String img;
-    public String loai;
+
 
     public Danhmuc() {
     }
@@ -11,7 +11,7 @@ public class Danhmuc {
     public Danhmuc(String ten, String img, String loai) {
         this.ten = ten;
         this.img = img;
-        this.loai = loai;
+
     }
 
     public String getTen() {
@@ -28,13 +28,5 @@ public class Danhmuc {
 
     public void setImg(String img) {
         this.img = img;
-    }
-
-    public String getLoai() {
-        return loai;
-    }
-
-    public void setLoai(String loai) {
-        this.loai = loai;
     }
 }
