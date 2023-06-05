@@ -1,31 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
+
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_thaydoi"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/mau_xanh"
-            app:titleTextColor="@color/white"
             app:title="Thay đổi"
-            app:titleTextAppearance="@style/Toolbar.TitleText"/>
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            app:titleTextColor="@color/white" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/anh_avt"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_below="@+id/toolbar_thaydoi"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/avt"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="2dp" />
         <TextView
+            android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Họ tên"
+            android:layout_below="@id/anh_avt"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/lexenddeca"
+            android:text="Họ tên"
             android:textColor="@color/mau_den"
             android:textSize="14dp"
-            android:layout_below="@id/toolbar_thaydoi"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/tv"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/ed_hoTen_thaydoi"
@@ -36,18 +58,19 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_edittext"
             android:paddingLeft="20dp" />
+
         <TextView
+            android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:layout_below="@id/ed_hoTen_thaydoi"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/lexenddeca"
+            android:text="Email"
             android:textColor="@color/mau_den"
             android:textSize="14dp"
-            android:layout_below="@id/ed_hoTen_thaydoi"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/tv1"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/ed_mail_thaydoi"
@@ -57,7 +80,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_edittext"
-            android:paddingLeft="20dp"/>
+            android:paddingLeft="20dp" />
 
         <TextView
             android:id="@+id/tv2"
@@ -70,49 +93,60 @@
             android:text="Số điện thoại"
             android:textColor="@color/mau_den"
             android:textSize="14dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <EditText
+            android:id="@+id/ed_sdt_thaydoi"
             android:layout_width="330dp"
             android:layout_height="45dp"
-            android:id="@+id/ed_sdt_thaydoi"
-            android:background="@drawable/bg_edittext"
             android:layout_below="@id/tv2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:paddingLeft="20dp"/>
+            android:background="@drawable/bg_edittext"
+            android:paddingLeft="20dp" />
+
         <TextView
+            android:id="@+id/tv3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Địa chỉ"
+            android:layout_below="@id/ed_sdt_thaydoi"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/lexenddeca"
+            android:text="Địa chỉ"
             android:textColor="@color/mau_den"
             android:textSize="14dp"
-            android:layout_below="@id/ed_sdt_thaydoi"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/tv3"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <EditText
+            android:id="@+id/ed_diachi_thaydoi"
             android:layout_width="330dp"
             android:layout_height="45dp"
-            android:id="@+id/ed_diachi_thaydoi"
-            android:background="@drawable/bg_edittext"
             android:layout_below="@id/tv3"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:paddingLeft="20dp"/>
+            android:background="@drawable/bg_edittext"
+            android:paddingLeft="20dp" />
 
-        <Button
-            android:id="@+id/btn_thaydoi"
-            android:layout_width="335dp"
-            android:layout_height="52dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="35dp"
-            android:backgroundTint="@color/mau_xanh"
-            android:fontFamily="@font/lexenddeca"
-            android:text="Thay đổi"
-            android:textSize="14dp" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_thaydoi"
+        android:layout_width="335dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/bg_button"
+        android:fontFamily="@font/lexenddeca"
+        android:text="Thay đổi"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2"
+        app:layout_constraintVertical_bias="0.953"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

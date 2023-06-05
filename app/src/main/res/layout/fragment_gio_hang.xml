@@ -130,7 +130,7 @@
                 android:id="@+id/tv_tongtien"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:fontFamily="@font/lexenddeca"
                 android:text="0"
                 android:textColor="#F44336"
@@ -150,11 +150,16 @@
 
             <Button
                 android:id="@+id/btn_thanhtoan"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
+                android:layout_width="148dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="80dp"
-                android:backgroundTint="@color/mau_xanh"
-                android:text="Thanh toán" />
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/lexenddeca"
+                android:text="Thanh toán"
+                android:textAllCaps="false"
+                android:paddingRight="20dp"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

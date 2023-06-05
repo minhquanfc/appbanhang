@@ -1,6 +1,7 @@
 package com.poly.onlineshop.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,8 @@ public class YeuThichAdapter extends RecyclerView.Adapter<YeuThichHolder> {
         holder.tv_ten_sp_yeuthich.setText(sanPham.getTen());
         holder.tv_gia_sp_yeuthich.setText(String.valueOf(sanPham.getGia()));
         Glide.with(context).load(sanPham.getAnh()).into(holder.img_sp_yeuthich);
+        holder.tv_ten_sp_yeuthich.setMaxLines(1);
+        holder.tv_ten_sp_yeuthich.setEllipsize(TextUtils.TruncateAt.END);
         holder.btn_cong_sp_yeuthich.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

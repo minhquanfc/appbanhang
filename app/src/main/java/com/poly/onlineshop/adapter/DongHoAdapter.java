@@ -3,6 +3,7 @@ package com.poly.onlineshop.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +39,11 @@ public class DongHoAdapter extends RecyclerView.Adapter<SanPhamHolder> {
     @Override
     public void onBindViewHolder(@NonNull SanPhamHolder holder, @SuppressLint("RecyclerView") int position) {
         DongHo dongHo = dongHoList.get(position);
-        holder.tv_gia_sanpham.setText(String.valueOf(dongHo.getGia()));
+        holder.tv_gia_sanpham.setText(String.valueOf(dongHo.getGia())+"đ");
         Glide.with(holder.img_sanpham.getContext()).load(dongHo.getAnh()).into(holder.img_sanpham);
         holder.tv_ten_sanpham.setText(dongHo.getTen());
+        holder.tv_ten_sanpham.setMaxLines(1);
+        holder.tv_ten_sanpham.setEllipsize(TextUtils.TruncateAt.END);
         holder.click_sanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

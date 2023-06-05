@@ -22,32 +22,15 @@
         android:textColor="@color/mau_den"
         android:textSize="12dp"
         android:textStyle="bold" />
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_gia_sanpham"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/tv_ten_sanpham">
-        <TextView
-            android:id="@+id/tv_gia_sanpham"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_ten_sanpham"
-            android:fontFamily="@font/lexenddeca"
-            android:text="9999999"
-            android:textColor="#F44336"
-            android:textSize="12dp"
-            android:paddingLeft="20dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_vnd_sanpham"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_ten_sanpham"
-            android:fontFamily="@font/lexenddeca"
-            android:text="đ"
-            android:textColor="#F44336"
-            android:textSize="12dp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:fontFamily="@font/lexenddeca"
+        android:text="9999999"
+        android:textColor="#F44336"
+        android:textSize="12dp"
+        android:layout_below="@id/tv_ten_sanpham"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
 </RelativeLayout>

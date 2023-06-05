@@ -25,29 +25,33 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/lexenddeca"
         android:id="@+id/tv_logo"/>
+
     <EditText
+        android:id="@+id/ed_hoTen_signin"
         android:layout_width="335dp"
         android:layout_height="52dp"
         android:layout_below="@+id/tv_logo"
-        android:hint="Họ tên"
-        android:fontFamily="@font/lexenddeca"
-        android:background="@drawable/bg_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/ed_hoTen_signin" />
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/lexenddeca"
+        android:hint="Họ tên"
+        android:textSize="14dp"
+        android:paddingLeft="20dp" />
+
     <EditText
+        android:id="@+id/ed_email_signin"
         android:layout_width="335dp"
         android:layout_height="52dp"
         android:layout_below="@+id/ed_hoTen_signin"
-        android:hint="Email"
-        android:fontFamily="@font/lexenddeca"
-        android:background="@drawable/bg_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/ed_email_signin"
-        android:inputType="textEmailAddress"/>
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/lexenddeca"
+        android:hint="Email"
+        android:textSize="14dp"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp" />
 
     <EditText
         android:id="@+id/ed_pass_signin"
@@ -60,39 +64,47 @@
         android:fontFamily="@font/lexenddeca"
         android:hint="Password"
         android:inputType="numberPassword"
-        android:paddingLeft="20dp" />
+        android:paddingLeft="20dp"
+        android:textSize="14dp"/>
     <EditText
+        android:id="@+id/ed_sdt_signin"
         android:layout_width="335dp"
         android:layout_height="52dp"
         android:layout_below="@+id/ed_pass_signin"
-        android:hint="Số điện thoại"
-        android:fontFamily="@font/lexenddeca"
-        android:background="@drawable/bg_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/ed_sdt_signin"
-        android:inputType="phone"/>
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/lexenddeca"
+        android:hint="Số điện thoại"
+        android:inputType="phone"
+        android:textSize="14dp"
+        android:paddingLeft="20dp" />
+
     <EditText
+        android:id="@+id/ed_diachi_signin"
         android:layout_width="335dp"
         android:layout_height="52dp"
         android:layout_below="@+id/ed_sdt_signin"
-        android:hint="Địa chỉ"
-        android:fontFamily="@font/lexenddeca"
-        android:background="@drawable/bg_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/ed_diachi_signin" />
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/lexenddeca"
+        android:hint="Địa chỉ"
+        android:textSize="14dp"
+        android:paddingLeft="20dp" />
+
     <Button
         android:id="@+id/btnSignin"
         android:layout_width="146dp"
-        android:layout_height="60dp"
-        android:text="Đăng ký"
-        android:backgroundTint="@color/mau_xanh"
-        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
         android:layout_below="@+id/ed_diachi_signin"
-        android:layout_marginTop="30dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_button"
+        android:text="Đăng ký"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -116,7 +116,6 @@ phá cho người dùng."
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:paddingLeft="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -124,13 +123,14 @@ phá cho người dùng."
         app:layout_constraintTop_toBottomOf="@+id/scrollView3"
         app:layout_constraintVertical_bias="0.923"
         tools:ignore="MissingConstraints"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:padding="15dp">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/imgtru"
             android:id="@+id/btn_tru_sp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="10dp"/>
         <TextView
             android:layout_width="wrap_content"
@@ -148,22 +148,14 @@ phá cho người dùng."
             android:layout_marginTop="10dp"/>
         <Button
             android:id="@+id/btn_add_giohang"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/mau_xanh"
+            android:layout_width="175dp"
+            android:layout_height="40dp"
             android:fontFamily="@font/lexenddeca"
             android:text="Thêm vào giỏ hàng"
-            android:textSize="12dp"
+            android:background="@drawable/bg_button"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14dp"
             android:layout_marginLeft="50dp"/>
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_muangay"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_marginLeft="20dp"-->
-<!--            android:backgroundTint="@color/mau_xanh"-->
-<!--            android:fontFamily="@font/lexenddeca"-->
-<!--            android:text="Mua ngay"-->
-<!--            android:textSize="14dp" />-->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,9 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangHolder> {
         holder.tv_gia_sp_giohang.setText(String.valueOf(gioHang.getGiaSanpham()));
         holder.tv_soluong_giohang.setText(String.valueOf(gioHang.getSoLuong()));
         Glide.with(context).load(gioHang.getAnh()).into(holder.img_sp_giohang);
+
+        holder.tv_ten_sp_giohang.setMaxLines(1);
+        holder.tv_ten_sp_giohang.setEllipsize(TextUtils.TruncateAt.END);
 
         holder.img_delete.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -25,39 +25,47 @@
         android:textColor="@color/mau_xanh"
         android:textSize="48dp"
         android:textStyle="bold" />
+
     <EditText
+        android:id="@+id/ed_email"
         android:layout_width="335dp"
         android:layout_height="52dp"
         android:layout_below="@+id/tv_logo"
-        android:hint="Email"
-        android:fontFamily="@font/lexenddeca"
-        android:background="@drawable/bg_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:paddingLeft="20dp"
-        android:id="@+id/ed_email"
-        android:inputType="textEmailAddress"/>
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/lexenddeca"
+        android:hint="Email"
+        android:textSize="14dp"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp" />
+
     <EditText
+        android:id="@+id/ed_pass"
         android:layout_width="335dp"
         android:layout_height="52dp"
         android:layout_below="@+id/ed_email"
-        android:hint="Password"
-        android:fontFamily="@font/lexenddeca"
-        android:background="@drawable/bg_edittext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:background="@drawable/bg_edittext"
+        android:fontFamily="@font/lexenddeca"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:paddingLeft="20dp"
-        android:id="@+id/ed_pass"
-        android:inputType="textPassword"/>
+        android:textSize="14dp" />
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="146dp"
-        android:layout_height="60dp"
-        android:text="Đăng nhập"
-        android:backgroundTint="@color/mau_xanh"
-        android:layout_centerHorizontal="true"
+        android:layout_height="50dp"
         android:layout_below="@+id/ed_pass"
-        android:layout_marginTop="30dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_button"
+        android:text="Đăng nhập"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

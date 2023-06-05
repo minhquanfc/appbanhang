@@ -3,6 +3,7 @@ package com.poly.onlineshop.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,9 +43,12 @@ public class SanPhamAdapter extends RecyclerView.Adapter<SanPhamHolder>{
         SanPham sanPham = sanPhamList.get(position);
 //        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
 //        holder.tv_gia_sanpham.setText(decimalFormat.format(sanPham.getGia()));
-        holder.tv_gia_sanpham.setText(String.valueOf(sanPham.getGia() ));
+        holder.tv_gia_sanpham.setText(String.valueOf(sanPham.getGia()+"đ"));
         Glide.with(holder.img_sanpham.getContext()).load(sanPham.getAnh()).into(holder.img_sanpham);
         holder.tv_ten_sanpham.setText(sanPham.getTen());
+        holder.tv_ten_sanpham.setMaxLines(1);
+        holder.tv_ten_sanpham.setEllipsize(TextUtils.TruncateAt.END);
+
         holder.click_sanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

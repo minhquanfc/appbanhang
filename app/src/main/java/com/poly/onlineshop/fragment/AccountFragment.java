@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +40,7 @@ import com.poly.onlineshop.model.User;
 
 public class AccountFragment extends Fragment {
 
-    ImageView img_edit;
+    ImageView img_edit,imageView;
     TextView tv_name_user, tv_mail_user, tv_donhangcuatoi, tv_yeuthich, tv_caidat, tv_giohang, tv_danhgia, tv_gioithieu, tv_hotro, tv_dangxuat;
 
     @Override
@@ -57,6 +58,7 @@ public class AccountFragment extends Fragment {
         tv_gioithieu = view.findViewById(R.id.tv_gioithieu);
         tv_hotro = view.findViewById(R.id.tv_hotro);
         tv_dangxuat = view.findViewById(R.id.tv_dangxuat);
+        imageView = view.findViewById(R.id.img_avt);;
 
         tv_donhangcuatoi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +143,9 @@ public class AccountFragment extends Fragment {
                     String email = user1.getEmail();
                     tv_mail_user.setText(email);
                     tv_name_user.setText(name);
+                    if (user1.getAnh()!=null){
+                        Glide.with(getActivity()).load(user1.getAnh()).into(imageView);
+                    }
                 }
             }
 

@@ -51,9 +51,11 @@
             android:layout_width="335dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
-            android:backgroundTint="@color/mau_xanh"
+            android:background="@drawable/bg_button"
             android:fontFamily="@font/lexenddeca"
             android:text="Trang chủ"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="12dp" />
 
         <Button
@@ -62,9 +64,12 @@
             android:layout_height="50dp"
             android:layout_below="@+id/btn_trangchu"
             android:layout_centerHorizontal="true"
-            android:backgroundTint="@color/mau_xanh"
+            android:background="@drawable/bg_button"
             android:text="Xem đơn hàng"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             android:fontFamily="@font/lexenddeca"
-            android:textSize="12dp"/>
+            android:textSize="12dp"
+            android:layout_marginTop="10dp"/>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

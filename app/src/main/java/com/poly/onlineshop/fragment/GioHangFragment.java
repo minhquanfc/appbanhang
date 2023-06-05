@@ -50,6 +50,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+
+//import javax.mail.Authenticator;
+//import javax.mail.Message;
+//import javax.mail.MessagingException;
+//import javax.mail.PasswordAuthentication;
+//import javax.mail.Session;
+//import javax.mail.Transport;
+//import javax.mail.internet.InternetAddress;
+//import javax.mail.internet.MimeMessage;
 
 public class GioHangFragment extends Fragment {
 
@@ -63,7 +73,7 @@ public class GioHangFragment extends Fragment {
     DatabaseReference reference;
     String idUser;
     ProgressDialog progressDialog;
-
+    String email,tenkhachhang;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -115,7 +125,7 @@ public class GioHangFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             int tongtien = intent.getIntExtra("tongtien", 0);
-            tv_tongtien.setText(tongtien + "");
+            tv_tongtien.setText(tongtien+"");
         }
     };
 
@@ -166,6 +176,7 @@ public class GioHangFragment extends Fragment {
                             .setValue(gioHang).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+//                            sendEmail();
                             gioHangList.clear();
                             XoaData();
                         }
@@ -282,6 +293,8 @@ public class GioHangFragment extends Fragment {
                         tv_diachi.setText(diachi);
                         tv_sdt.setText(user1.getSdt());
                         tv_ten.setText(user1.getHoTen());
+                        email = user1.getEmail();
+                        tenkhachhang = user1.getHoTen();
                     }
                 }
             }
@@ -292,4 +305,54 @@ public class GioHangFragment extends Fragment {
             }
         });
     }
+
+    //gui email
+//    private void sendEmail() {
+//        try {
+//            String stringSenderEmail = "kuntienty@gmail.com";
+//            String stringReceiverEmail = email;
+//            String stringPasswordSenderEmail = "vghnnkhpgquresyx";
+//
+//            String stringHost = "smtp.gmail.com";
+//
+//            Properties properties = System.getProperties();
+//
+//            properties.put("mail.smtp.host", stringHost);
+//            properties.put("mail.smtp.port", "465");
+//            properties.put("mail.smtp.ssl.enable", "true");
+//            properties.put("mail.smtp.auth", "true");
+//
+//            javax.mail.Session session = Session.getInstance(properties, new Authenticator() {
+//                @Override
+//                protected PasswordAuthentication getPasswordAuthentication() {
+//                    return new PasswordAuthentication(stringSenderEmail, stringPasswordSenderEmail);
+//                }
+//            });
+//
+//            MimeMessage mimeMessage = new MimeMessage(session);
+//            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(stringReceiverEmail));
+//
+//            mimeMessage.setSubject("ĐẶT HÀNG THÀNH CÔNG!");
+//            mimeMessage.setText(
+//                    "Xin chào "+tenkhachhang+"!\n\n" +
+//                    "Đơn hàng của bạn đã được đặt thành công.Chúng tôi sẽ gọi lại để xác nhận đơn hàng của bạn. \n\n"+
+//                    "Cảm ơn bạn đã tin tưởng và sử dụng app Shop Online \n\n" +
+//                    "Shop Online.");
+//
+//            Thread thread = new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    try {
+//                        Transport.send(mimeMessage);
+//                    } catch (MessagingException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
+//            thread.start();
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
 }

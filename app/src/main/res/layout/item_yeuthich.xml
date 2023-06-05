@@ -80,7 +80,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -100,13 +101,16 @@
                     android:id="@+id/btn_cong_sp_yeuthich"
                     android:layout_marginLeft="10dp" />
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/mau_xanh"
+                    android:layout_width="68dp"
+                    android:layout_height="30dp"
                     android:text="Thêm"
                     android:layout_marginLeft="68dp"
                     android:layout_marginRight="21dp"
-                    android:id="@+id/btn_add_sp_yeuthich"/>
+                    android:id="@+id/btn_add_sp_yeuthich"
+                    android:background="@drawable/bg_button_them"
+                    android:fontFamily="@font/lexenddeca"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
